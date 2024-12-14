@@ -1,0 +1,38 @@
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        style
+            include styleblog.css 
+            title Информация о компьютерах
+  body
+    header
+      .container
+        h1 Компьютеры и технологии
+        nav
+          ul
+            li
+              a(href="/") Главная
+            li
+              a(href="/") Статьи
+            li
+              a(href="/") Контакты
+    .main-content
+      .container
+        .article
+          h1= Компьютер
+          p.date= Сегодня
+          p= Компьютер представляет собой электронное устройство, которое работает с информацией и данными. 
+          p= Он может хранить, извлекать и обрабатывать данные. 
+          p= Вы уже знаете, что с помощью компьютера можно печатать документы, отправлять электронную почту, играть в компьютерные игры и просматривать веб-страницы. 
+          p= Вы можете также редактировать или создавать электронные таблицы, презентации и даже видео.
+        .sidebar
+          h2 Последние статьи
+          ul
+            each item in recentArticles
+              li
+                a(href=item.link)= item.title
+    footer
+      .container
+        p &copy; 2024 Информация о компьютерах. Все права защищены.
+        p Контактная информация: email@example.com

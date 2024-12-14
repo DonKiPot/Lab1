@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Интернет-магазин
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .container
+      h1 Наши продукты
+      .product-list
+        each product in products
+          .product-card
+            img(src=product.image, alt=product.name)
+            h2= Смарьфон
+            p= Наш смартфон с лучшими характеристиками
+            p.price $#{product.price}
+            button.buy-button Купить
+            

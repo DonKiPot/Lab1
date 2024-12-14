@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Форма обратной связи
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .container
+      h1 Форма обратной связи
+      form(method='POST', action='/submit-form')
+        .form-group
+          label(for='name') Имя:
+          input(type='text', id='name', name='name', required)
+        .form-group
+          label(for='email') Email:
+          input(type='email', id='email', name='email', required)
+        .form-group
+          label(for='subject') Тема сообщения:
+          input(type='text', id='subject', name='subject', required)
+        .form-group
+          label(for='message') Сообщение:
+          textarea(id='message', name='message', rows='5', required)
+        .form-group
+          label Тип запроса:
+          .radio-group
+            input(type='radio', id='question', name='requestType', value='question', required)
+            label(for='question') Вопрос
+            input(type='radio', id='feedback', name='requestType', value='feedback', required)
+            label(for='feedback') Отзыв
+            input(type='radio', id='complaint', name='requestType', value='complaint', required)
+            label(for='complaint') Жалоба
+        .form-group
+          input(type='checkbox', id='subscribe', name='subscribe')
+          label(for='subscribe') Подписаться на рассылку новостей
+        .form-group
+          button(type='submit') Отправить
+        if message
+          .message(class=message.type) #{message.text}

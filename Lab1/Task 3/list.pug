@@ -1,0 +1,16 @@
+html
+  head
+    title Список задач
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .container
+      h1 Список задач
+      form(method='POST', action='/add-task')
+        input(type='text', name='task', placeholder='Новая задача', required)
+        button(type='submit') Добавить
+      ul.task-list
+        each task in tasks
+          li
+            span(class=task.completed ? 'completed' : '')= task.name
+            button(type='button', onclick='markAsCompleted(#{task.id})') Выполнено
+            button(type='button', onclick='deleteTask(#{task.id})') Удалить
